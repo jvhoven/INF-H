@@ -16,7 +16,7 @@ const app = angular
 app.config(($stateProvider) => {
 	const homeState = {
 		name: 'hello',
-    url: '/hello',
+		url: '/hello',
 	}
 
 	const aboutState = {
