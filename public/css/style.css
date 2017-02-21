@@ -4,55 +4,66 @@
 }
 
 body {
-  background: #ececec;
+  background: #fff;
   font-family: 'PT Sans', sans-serif;
-}
-
-.container {
-  position: absolute;
-  width: 1040px;
-  height: 600px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /**
 * MENU
 */
 aside {
-  border-radius: 5px;
-  float: left;
-  width: inherit;
-  height: 100%;
-  background-color: #FFF;
-}
-
-.title {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 15px;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
-  background: #82ca9c;
+  float: left;
+  width: 120px;
+  height: 100vh;
+  padding: 10px;
+  background-color: #353a3e;
 }
 
-.title span {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #FFF;
+aside a {
+  display: block;
+  color: #788e99;
+  text-decoration: none;
+}
+
+aside a span {
+  font-size: 12px;
+}
+
+i {
+  display: block;
+  font-size: 30px !important;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 70px;
 }
 
 aside > ul {
   list-style: none;
 }
 
+aside > ul > li {
+  margin: 60% 0;
+}
+
+aside > ul > li > a.active {
+  color: #FFF;
+}
+
+aside > ul > li:first-child {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 /**
 * MAIN
 */
 main {
-  width: calc(100% - 275px);
+  width: calc(100% - 140px);
   float: left;
 }
 
@@ -87,16 +98,6 @@ main {
   background: #FFF;
   box-sizing: border-box;
   padding: 10px;
-}
-
-/**
-* Shitty angular tags
-*/
-menu {
-  margin-right: 25px;
-  float: left;
-  width: 250px;
-  height: 100%;
 }
 
 session {

@@ -1,6 +1,4 @@
 export default {
   selector: 'sessionList',
-  template: require('./index.html'),
-  controller: () => {
-  }
+  template: require('./index.html')
 }
