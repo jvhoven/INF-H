@@ -1,6 +1,9 @@
 export default {
   selector: 'menu',
   template: require('./index.html'),
+  binding: {
+    name: '<'
+  },
   controller: () => {
     let ctrl = this;
     ctrl.name = 'hallo';

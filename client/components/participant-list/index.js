@@ -1,5 +1,5 @@
 export default {
-  selector: 'sessionList',
+  selector: 'participantList',
   template: require('./index.html'),
   controller: () => {
   }

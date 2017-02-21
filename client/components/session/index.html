@@ -1,0 +1,17 @@
+<div 
+  class="session" 
+  ng-repeat="session in sessionCtrl.sessions"
+  session="session"
+>
+  <div ng-click="sessionCtrl.open(session)" class="session__title">
+    <h2>{{session.name}}</h2>
+    <div class="session__title__icons">
+    </div>
+  </div>
+  <div ng-show="session.open" class="session__participants">
+    <participant-list></participant-list>
+  </div>
+  <div ng-show="session.open" class="session__footer">
+    <button class="btn">Enroll</button>
+  </div>
+</div>
