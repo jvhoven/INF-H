@@ -3,7 +3,19 @@ export default {
   controller: function($scope) {
     this.sessions = [{ 
       name: 'INF-G Zuipavond',
-      participants: 4,
+      participants: 6,
+      open: false
+    }, {
+      name: 'INF-H Zuipavond',
+      participants: 2,
+      open: false
+    }, {
+      name: 'INF-H Zuipavond',
+      participants: 2,
+      open: false
+    }, {
+      name: 'INF-H Zuipavond',
+      participants: 2,
       open: false
     }, {
       name: 'INF-H Zuipavond',
