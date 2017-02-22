@@ -1,6 +1,6 @@
 <div 
   class="session session--big" 
-  ng-repeat="session in sessionCtrl.sessions"
+  ng-repeat="session in $ctrl.sessions"
   session="session"
 >
   <div ng-click="sessionCtrl.open(session)" class="session__title">
@@ -8,10 +8,10 @@
     <div class="session__title__icons">
     </div>
   </div>
-  <div ng-show="session.open" class="session__participants">
+  <div class="session__participants">
     <participant-list></participant-list>
   </div>
-  <div ng-show="session.open" class="session__footer">
+  <div class="session__footer">
     <button class="btn">Enroll</button>
   </div>
 </div>

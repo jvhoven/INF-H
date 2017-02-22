@@ -6,19 +6,22 @@
 body {
   background: #ececec;
   font-family: 'PT Sans', sans-serif;
+  font-size: 2em;
 }
 
 /**
 * MENU
 */
 aside {
+  position: fixed;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  float: left;
-  width: 120px;
+  width: 100px;
   height: 100vh;
   padding: 10px;
   background-color: #353a3e;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
 
 aside a {
@@ -28,14 +31,13 @@ aside a {
 }
 
 aside a span {
-  font-size: 12px;
+  font-size: 0.35em;
 }
 
 i {
   display: block;
   font-size: 30px !important;
   width: 100%;
-  margin-bottom: 15px;
 }
 
 .logo img {
@@ -47,7 +49,7 @@ aside > ul {
 }
 
 aside > ul > li {
-  margin: 60% 0;
+  margin: 40% 0;
 }
 
 aside > ul > li > a.active {
@@ -63,7 +65,8 @@ aside > ul > li:first-child {
 * MAIN
 */
 main {
-  width: calc(100% - 140px);
+  margin-left: 100px;
+  width: calc(100% - 100px);
   float: left;
 }
 
@@ -76,6 +79,7 @@ session {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
+  flex-flow: row wrap;
 }
 
 .session .session--big {
@@ -84,13 +88,17 @@ session {
 }
 
 .session {
-  -webkit-flex: 1 0 0;
-   flex: 1 0 0;
+  flex-basis: 100%;
   color: #FFF;
+  background: #FFF;
+  border-bottom: 1px solid #ececec;
+  height: 150px;  
 }
 
 .session__title {
-  background: #82ca9c;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
   box-sizing: border-box;
   padding: 20px;
 }
@@ -100,11 +108,9 @@ session {
 }
 
 .session__participants {
-  border-bottom: 1px solid #ececec;  
 }
 
 .session__participants, .session__footer {
-  background: #FFF;
   box-sizing: border-box;
   padding: 10px;
 }
