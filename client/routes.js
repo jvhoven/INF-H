@@ -1,13 +1,10 @@
-export default ($stateProvider) => {
+export default ($locationProvider, $stateProvider) => {
+	$locationProvider.html5Mode(true);
+
 	const homeState = {
 		name: 'home',
 		url: '/',
-		component: 'session',
-		resolve: {
-			sessions: function(SessionService) {
-				return SessionService.getAll();
-			}
-  	}
+		component: 'session'
 	}
 
 	const accountState = {

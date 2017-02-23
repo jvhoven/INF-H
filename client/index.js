@@ -1,4 +1,3 @@
-import io from 'socket.io-client';
 import angular from 'angular';
 import 'angular-ui-router';
 
@@ -9,15 +8,16 @@ import Routes from './routes';
 import Session from './components/session/index';
 import Menu from './components/menu/index';
 
-// Services
-import SessionService from './services/session';
+// Factory
+import SocketFactory from './factories/socket';
 
-const socket = io('http://localhost:3000');
+// Services
+
 const app = angular
 	.module('keepo', [
 		'ui.router',
 	])
-	.service('SessionService', SessionService)	
+	.factory('socket', SocketFactory)
 	.component(Session.selector, Session)
 	.component(Menu.selector, Menu)
 	.config(Routes)

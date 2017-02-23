@@ -1,9 +1,7 @@
-export default function($http) {
-  const service = {
-    getAll: () => $http.get('http://localhost:3000/sessions', { cache: true }).then(
-      (resp) => resp.data
-    )
-  }
+export default function(socket) {
+  let sockets = [];
 
-  return service;
+  return {
+    getAll: () => console.log(socket)
+  }
 };

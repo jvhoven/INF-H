@@ -4,8 +4,6 @@ const http = require('http').Server(app);
 const cwd = require('process').cwd();
 const io = require('socket.io')(http);
 
-let sessions = [];
-
 app.use(express.static(cwd + '/'))
 
 app.get('/', function(req, res){
@@ -13,8 +11,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
-  sessions.push({ name: 'hello' });
+  socket.emit('init', {
+    name: 'test'
+  });
 });
 
 app.get('/sessions', (req, res) => {
