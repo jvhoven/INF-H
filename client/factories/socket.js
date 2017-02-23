@@ -1,25 +1,25 @@
-import io from 'socket.io-client';
+import io from 'socket.io-client'
 
 export default $rootScope => {
-  const socket = io('http://localhost:3000'); 
+  const socket = io('http://localhost:3000')
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {
-        var args = arguments;
+        const args = arguments
         $rootScope.$apply(function () {
-          callback.apply(socket, args);
-        });
-      });
+          callback.apply(socket, args)
+        })
+      })
     },
     emit: function (eventName, data, callback) {
       socket.emit(eventName, data, function () {
-        var args = arguments;
+        const args = arguments
         $rootScope.$apply(function () {
           if (callback) {
-            callback.apply(socket, args);
+            callback.apply(socket, args)
           }
-        });
+        })
       })
     }
-  };
-};
+  }
+}

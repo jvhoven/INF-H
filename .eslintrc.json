@@ -1,0 +1,13 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "angular",
+    "import"
+  ],
+  "parserOptions": {
+     "sourceType": "module"
+  },
+  "ecmaFeatures": {
+    "modules": true
+  }
+}
