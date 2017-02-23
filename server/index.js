@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const cwd = require('process').cwd();
 const io = require('socket.io')(http);
 
+let sessions = [];
 app.use(express.static(cwd + '/'))
 
 app.get('/', function(req, res){
@@ -11,9 +12,12 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-  socket.emit('init', {
-    name: 'test'
-  });
+  socket.emit('init', sessions);
+
+  socket.on('create:session', data => {
+    sessions.push(data);
+    io.sockets.emit('update:session', sessions);
+  })
 });
 
 app.get('/sessions', (req, res) => {

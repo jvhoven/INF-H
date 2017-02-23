@@ -1,11 +1,23 @@
 export default {
   selector: 'session',    
-  templateUrl: '/client/components/session/index.html',
-  controller: ($scope, socket) => {
-    $scope.sessions = [];
+  controller: function($scope, socket) {
+    this.sessions = [];
+    
+    /** Receive session data on connect */
     socket.on('init', data => {
-      console.log(data);
-      $scope.sessions.push(data.name);
+      this.sessions = data;
     });
-  }
+
+    /** Receive session data on new session */
+    socket.on('update:session', data => {
+      this.sessions = data;
+    });
+
+    /** Create a new sessions */
+    this.create = () => {
+      socket.emit('create:session', { name: 'test' });
+    };
+  },
+  controllerAs: 'sessionCtrl',
+  templateUrl: '/client/components/session/index.html'  
 }

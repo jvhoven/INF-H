@@ -1,6 +1,7 @@
+<a href="#" ng-click="sessionCtrl.create()">Create sessions</a>
 <div 
   class="session session--big" 
-  ng-repeat="session in $ctrl.sessions"
+  ng-repeat="session in sessionCtrl.sessions"
   session="session"
 >
   <div ng-click="sessionCtrl.open(session)" class="session__title">
