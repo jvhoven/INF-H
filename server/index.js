@@ -16,7 +16,7 @@ io.on('connection', (socket) => {
 
   socket.on('create:session', data => {
     sessions.push(data)
-    io.sockets.emit('update:session', sessions)
+    io.sockets.emit('update:sessions', sessions)
   })
 })
 

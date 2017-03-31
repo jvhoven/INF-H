@@ -1,5 +1,5 @@
-const path = require('path');
-const cwd = require('process').cwd();
+const path = require('path')
+const cwd = require('process').cwd()
 
 module.exports = {
   devtool: 'cheap-eval-source-map',
@@ -13,8 +13,8 @@ module.exports = {
       {
         test: /\.html?$/,
         exclude: /node_modules/,
-        loader: 'html-loader',
+        loader: 'html-loader'
       }
     ]
   }
-};
+}
