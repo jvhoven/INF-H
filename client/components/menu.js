@@ -9,13 +9,13 @@ export default {
       <li>
         <a ui-sref="home" ui-sref-active="active">
           <i class="fa fa-calendar"></i>
-          <span>All sessions</span>
+          <span>All rooms</span>
         </a>
       </li>
       <li>
         <a ui-sref="create" ui-sref-active="active">
           <i class="fa fa-calendar-plus-o"></i>
-          <span>Create session</span>
+          <span>Create room</span>
         </a>
       </li>
       <li>

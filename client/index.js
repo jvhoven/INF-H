@@ -3,32 +3,34 @@ import 'angular-ui-router'
 
 import Routes from './routes'
 
+// Controllers
+import HomeController from './controllers/home'
+
 // Factories
 import socket from './factories/socket'
 
 // Services
-import SessionService from './services/session'
+import RoomsService from './services/rooms'
 
 // Pages
 import About from './pages/about'
 import Account from './pages/account'
-import CreateSession from './pages/createSession'
-import Home from './pages/home'
+import CreateRoom from './pages/createRoom'
 
 // Components
 import Menu from './components/menu'
-import Session from './components/session'
+import Room from './components/room'
 
 angular.module('keepo', [
   'ui.router'
 ])
+.controller('HomeController', HomeController)
 .factory('socket', socket)
-.service('SessionService', SessionService)
+.service('RoomsService', RoomsService)
 .component(Menu.selector, Menu)
-.component(Session.selector, Session)
-.component(Home.selector, Home)
+.component(Room.selector, Room)
 .component(Account.selector, Account)
 .component(About.selector, About)
-.component(CreateSession.selector, CreateSession)
+.component(CreateRoom.selector, CreateRoom)
 .config(Routes)
 

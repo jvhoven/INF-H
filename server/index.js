@@ -4,7 +4,11 @@ const http = require('http').Server(app)
 const cwd = require('process').cwd()
 const io = require('socket.io')(http)
 
-let sessions = []
+let rooms = [{
+  name: 'General'
+}, {
+  name: 'Chilling'
+}]
 app.use(express.static(cwd + '/'))
 
 app.get('/', function (req, res) {
@@ -12,11 +16,20 @@ app.get('/', function (req, res) {
 })
 
 io.on('connection', (socket) => {
-  socket.emit('init', sessions)
+  socket.emit('init', rooms)
 
-  socket.on('create:session', data => {
-    sessions.push(data)
-    io.sockets.emit('update:sessions', sessions)
+  socket.on('update:rooms', (empty, fn) => {
+    fn(rooms)
+  })
+
+  socket.on('create:room', (name, fn) => {
+    rooms.push({
+      name
+    })
+
+    console.log('Emitting to all sockets')
+    socket.broadcast.emit('update:rooms', rooms)
+    fn(rooms)
   })
 })
 

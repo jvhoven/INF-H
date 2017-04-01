@@ -1,5 +1,5 @@
 export default {
-  selector: 'createSession',
+  selector: 'createRoom',
   template: `
     <menu></menu>    
     <main>

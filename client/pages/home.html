@@ -1,0 +1,11 @@
+<menu></menu>    
+<main>
+  <a href="#" ng-click="toggleCreate()">New room</a>
+  <div class="room-list">
+    <room ng-click="joinRoom(room.name)" data="room" ng-repeat="room in rooms" room="room"></room>
+  </div>
+  <div ng-show="makingRoom">
+    <input ng-model="roomName" type="text" />
+    <input type="submit" ng-click="createRoom()" />
+  </div>
+</main>

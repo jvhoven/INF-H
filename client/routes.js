@@ -5,9 +5,10 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
   const homeState = {
     name: 'home',
     url: '/',
-    component: 'home',
+    controller: 'HomeController as vm',
+    templateUrl: '/client/pages/home.html',
     resolve: {
-      sessions: (SessionService) => SessionService.sockets
+      _rooms: (RoomsService) => RoomsService.rooms.then(data => data)
     }
   }
 
@@ -17,10 +18,10 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     component: 'account'
   }
 
-  const createSessionState = {
+  const createRoomState = {
     name: 'create',
     url: '/create',
-    component: 'createSession'
+    component: 'createRoom'
   }
 
   const aboutState = {
@@ -30,7 +31,7 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
   }
 
   $stateProvider.state(homeState)
-  $stateProvider.state(createSessionState)
+  $stateProvider.state(createRoomState)
   $stateProvider.state(accountState)
   $stateProvider.state(aboutState)
 }
