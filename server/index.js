@@ -28,9 +28,6 @@ const modifyRoom = (socket, roomName, message, mode = 'join') => {
       mode === 'join' ? room.userCount++ : room.userCount--
     }
   })
-
-  // Send update
-  socket.broadcast.emit('update:rooms', rooms)
 }
 
 io.on('connection', (socket) => {
@@ -39,6 +36,9 @@ io.on('connection', (socket) => {
 
   // Default channel is general
   socket.join('General', modifyRoom(socket, 'General', 'has joined the room'))
+ 
+  // Push updates onto the other connected sockets.
+  socket.broadcast.emit('update:rooms', rooms)
 
   /**
    * Upon creating a room, we send a list of updated rooms back.
@@ -54,7 +54,7 @@ io.on('connection', (socket) => {
    * @param {string} name - Name of the new room.
    * @param {function} fn - The callback to pass the updated array of rooms to.
    */
-  socket.on('create:room', (name, fn) => {
+  socket.on('create:room', (name, cb) => {
     rooms.push({
       name,
       userCount: 0
@@ -63,12 +63,27 @@ io.on('connection', (socket) => {
     // Push updates onto the other connected sockets.
     socket.broadcast.emit('update:rooms', rooms)
 
-    fn(rooms)
+    cb(rooms)
+  })
+
+  socket.on('join:room', (roomName, cb) => {
+    const [, currentRoom] = Object.keys(socket.rooms)
+    if (currentRoom !== roomName) {
+      socket.leave(currentRoom, modifyRoom(socket, currentRoom, 'has left the room', 'leaving'))
+      socket.join(roomName, modifyRoom(socket, roomName, 'has joined the room'))
+
+      // Send update
+      socket.broadcast.emit('update:rooms', rooms)
+      cb(rooms)
+    }
   })
 
   socket.on('disconnecting', () => {
-    const [, leftRoom] = Object.keys(socket.rooms)
-    modifyRoom(socket, leftRoom, 'has left the room', 'leaving')
+    const [, currentRoom] = Object.keys(socket.rooms)
+    modifyRoom(socket, currentRoom, 'has left the room', 'leaving')
+
+    // Push updates onto the other connected sockets.
+    socket.broadcast.emit('update:rooms', rooms)
   })
 })
 

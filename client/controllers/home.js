@@ -7,7 +7,10 @@ export default function ($scope, RoomsService, socket, _rooms) {
    * Assigns user to a room namespace.
    */
   $scope.joinRoom = (roomName) => {
-    // TODO: Join room - https://socket.io/docs/rooms-and-namespaces/
+    RoomsService.join(roomName)
+      .then(rooms => $scope.$apply(() => {
+        $scope.rooms = rooms
+      }))
   }
 
   /**
@@ -32,7 +35,7 @@ export default function ($scope, RoomsService, socket, _rooms) {
   }
 
   /**
-   * Update rooms when a new one is created.
+   * Update rooms when an event modifies the room structure.
    */
   socket.on('update:rooms', (data) => {
     $scope.rooms = data

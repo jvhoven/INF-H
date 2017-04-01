@@ -12,6 +12,14 @@ export default class RoomsService {
     })
   }
 
+  join (room) {
+    return new Promise((resolve, reject) => {
+      this.socket.emit('join:room', room, (data) => {
+        resolve(data)
+      })
+    })
+  }
+
   get rooms () {
     return new Promise((resolve, reject) => {
       this.socket.emit('update:rooms', null, (data) => {
