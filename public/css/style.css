@@ -70,47 +70,62 @@ main {
   float: left;
 }
 
+main > a {
+  width: 200px;
+  height: 50px;
+  color: #63676B;
+  background: #2E3136;
+  border-bottom: 1px solid #292C31;
+}
+
 /**
-* SESSION LIST
+* MAKE ROOM
 */
-session {
-  width: 100%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  flex-flow: row wrap;
-}
-
-.session .session--big {
-  -webkit-flex: 2 0 0; 
-  flex: 2 0 0; 
-}
-
-.session {
-  flex-basis: 100%;
+.make-room > a {
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+  font-size: 16px;
   color: #FFF;
-  background: #FFF;
-  border-bottom: 1px solid #ececec;
-  height: 150px;  
-}
-
-.session__title {
-  color: #000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+  width: 200px;
+  height: 50px;
+  background: #4a4f56;
   box-sizing: border-box;
-  padding: 20px;
+  border-bottom: 2px solid #292c31;
 }
 
-.session__title:hover {
+/**
+* ROOMS
+*/
+.room-list {
+  width: 200px;
+  height: calc(100vh - 50px);
+  background: #2E3136;
+}
+
+.room {
+  display: block;
+  color: #63676B;
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.room--active {
+  color: #FFF;
+}
+
+.room:hover {
+  color: #FFF;
+  background: #4a4f56;
   cursor: pointer;
 }
 
-.session__participants {
+.room__title {
+  font-size: 16px;
 }
 
-.session__participants, .session__footer {
-  box-sizing: border-box;
-  padding: 10px;
+.room__subtitle {
+  font-size: 12px;
 }

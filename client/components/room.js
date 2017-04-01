@@ -5,7 +5,8 @@ export default {
   },
   template: `
     <div class="room">
-      <h1>{{$ctrl.data.name}}</h1>
+      <h4 class="room__title"># {{ $ctrl.data.name | lowercase }}</h4>
+      <p class="room__subtitle">{{ $ctrl.data.userCount }} users connected</p>
     </div>
   `
 }

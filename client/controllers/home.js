@@ -7,7 +7,7 @@ export default function ($scope, RoomsService, socket, _rooms) {
    * Assigns user to a room namespace.
    */
   $scope.joinRoom = (roomName) => {
-    console.log(roomName)
+    // TODO: Join room - https://socket.io/docs/rooms-and-namespaces/
   }
 
   /**
@@ -36,5 +36,9 @@ export default function ($scope, RoomsService, socket, _rooms) {
    */
   socket.on('update:rooms', (data) => {
     $scope.rooms = data
+  })
+
+  socket.on('user:update', (msg) => {
+    console.log(msg)
   })
 }
