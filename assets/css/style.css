@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ececec;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 2em;
+}
+
+/**
+* MENU
+*/
+aside {
+  position: fixed;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  width: 100px;
+  height: 100vh;
+  padding: 10px;
+  background-color: #353a3e;
+  box-sizing: border-box;
+  overflow-y: hidden;
+}
+
+aside a {
+  display: block;
+  color: #788e99;
+  text-decoration: none;
+}
+
+aside a span {
+  font-size: 0.35em;
+}
+
+i {
+  display: block;
+  font-size: 30px !important;
+  width: 100%;
+}
+
+.logo img {
+  width: 70px;
+}
+
+aside > ul {
+  list-style: none;
+}
+
+aside > ul > li {
+  margin: 40% 0;
+}
+
+aside > ul > li > a.active {
+  color: #FFF;
+}
+
+aside > ul > li:first-child {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/**
+* MAIN
+*/
+main {
+  margin-left: 100px;
+  width: calc(100% - 100px);
+  float: left;
+}
+
+/**
+* SESSION LIST
+*/
+session {
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.session .session--big {
+  -webkit-flex: 2 0 0; 
+  flex: 2 0 0; 
+}
+
+.session {
+  flex-basis: 100%;
+  color: #FFF;
+  background: #FFF;
+  border-bottom: 1px solid #ececec;
+  height: 150px;  
+}
+
+.session__title {
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.session__title:hover {
+  cursor: pointer;
+}
+
+.session__participants {
+}
+
+.session__participants, .session__footer {
+  box-sizing: border-box;
+  padding: 10px;
+}
