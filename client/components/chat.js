@@ -11,8 +11,7 @@ export default {
     $scope.sendMessage = () => {
       if ($scope.message.length > 0) {
         const { name } = $rootScope
-        console.log(this.room)
-   
+
         const message = {
           room: this.room,
           content: $scope.message,

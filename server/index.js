@@ -83,6 +83,7 @@ io.on('connection', (socket) => {
 
       // Send update
       socket.broadcast.emit('update:rooms', rooms)
+      socket.emit('update:messages', messages.filter(m => m.room === roomName))
       cb(rooms)
     }
   })
