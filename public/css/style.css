@@ -18,7 +18,7 @@ body, html {
 * MENU
 */
 aside {
-  position: fixed;
+  float: left;
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   width: 100px;
@@ -70,9 +70,9 @@ aside > ul > li:first-child {
 * MAIN
 */
 main {
-  margin-left: 100px;
-  width: calc(100% - 100px);
+  position: relative;
   float: left;
+  width: calc(100% - 200px - 100px);
 }
 
 main > a {
@@ -176,6 +176,10 @@ main > a {
 /**
 * ROOMS
 */
+rooms {
+  float: left;
+}
+
 .room-list {
   width: 200px;
   height: calc(100vh - 50px);
@@ -208,3 +212,8 @@ main > a {
 .room__subtitle {
   font-size: 12px;
 }
+
+/**
+* CHAT
+*/
+

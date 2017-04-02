@@ -1,18 +1,18 @@
 export default {
   selector: 'message',
   bindings: {
-    data: '<'
+    data: '='
   },
   template: `
     <div class="message">
       <div class="message__author">
-        <span class="author__intials"></span>
+        <span class="author__intials">{{ $ctrl.data.author | initials }}</span>
       </div>
       <span class="message__content">
-        Lorem ipsum solor det amit
+        {{ $ctrl.data.content }}
       </span>
       <span class="message__timestamp">
-        20-02-1924
+        {{ $ctrl.data.timestamp }}
       </span>
     </div>
   `

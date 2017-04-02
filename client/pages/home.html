@@ -1,13 +1,5 @@
 <menu></menu>    
+<rooms rooms="rooms"></rooms>
 <main>
-  <div class="make-room">
-    <a ng-hide="makingRoom" href="#" ng-click="toggleCreate()">+ New room</a>
-    <div ng-show="makingRoom">
-      <input ng-model="roomName" type="text" />
-      <input type="submit" ng-click="createRoom()" />
-    </div>
-  </div>
-  <div class="room-list">
-    <room ng-click="joinRoom(room.name)" data="room" ng-repeat="room in rooms" room="room"></room>
-  </div>
+  <chat messages="messages"></chat>
 </main>

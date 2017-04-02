@@ -13,6 +13,11 @@ let rooms = [{
 }]
 
 let users = []
+let messages = [{
+  content: 'Lorem ipsum solor det amit',
+  author: 'Jeffrey',
+  timestamp: '20-02-1937 20:37'
+}]
 
 app.use(express.static(cwd + '/'))
 
@@ -46,15 +51,22 @@ io.on('connection', (socket) => {
    * Upon creating a room, we send a list of updated rooms back.
    *
    * @param {null} empty - Only passed around for the purpose of making it work.
-   * @param {function} fn - The callback to pass the updated array of rooms to.
+   * @param {function} cb - The callback to pass the updated array of rooms to.
    */
-  socket.on('update:rooms', (empty, fn) => {
-    fn(rooms)
+  socket.on('update:rooms', (empty, cb) => {
+    cb(rooms)
+  })
+
+  /** Upon creating a message, we send a list of updated messages back.
+   * 
+   */
+  socket.on('update:messages', (empty, cb) => {
+    cb(messages)
   })
 
   /**
    * @param {string} name - Name of the new room.
-   * @param {function} fn - The callback to pass the updated array of rooms to.
+   * @param {function} cb - The callback to pass the updated array of rooms to.
    */
   socket.on('create:room', (name, cb) => {
     rooms.push({
