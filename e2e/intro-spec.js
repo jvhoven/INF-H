@@ -7,7 +7,7 @@ describe('Introduction page', function () {
     element(by.model('name')).sendKeys('1')
     element(by.id('submit')).click()
 
-    expect(element(by.binding('error')).getText()).toEqual('Name must be longer than 6 characters.')
+    expect(element(by.binding('error')).getText()).toEqual('Name must be longer than 4 characters.')
   })
 
   it('should accept the name', () => {

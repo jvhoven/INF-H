@@ -11,7 +11,7 @@
     "start:prod": "concurrently \"node server/index\" \"yarn run build:prod\"",
     "test": "jest --notify",
     "test:watch": "jest --watch --notify",
-    "test:e2e": "scripts/e2e.sh"
+    "test:e2e": "protractor e2e/conf.js"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
