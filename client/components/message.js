@@ -13,7 +13,6 @@ export default {
         {{ $ctrl.data.content }}
       </span>
       <span class="message__timestamp">
-        {{ $ctrl.data.timestamp }}
       </span>
     </div>
   `
