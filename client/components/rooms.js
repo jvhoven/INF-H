@@ -34,14 +34,16 @@ export default {
      * Registers a new room at the server.
      */
     $scope.createRoom = () => {
-      RoomsService.create($scope.roomName)
-        .then(rooms => $scope.$apply(() => {
-          this.rooms = rooms
-        }))
+      if ($scope.roomName.length > 0) {
+        RoomsService.create($scope.roomName)
+          .then(rooms => $scope.$apply(() => {
+            this.rooms = rooms
+          }))
 
-      // Reset scope values
-      $scope.makingRoom = false
-      $scope.roomName = ''
+        // Reset scope values
+        $scope.makingRoom = false
+        $scope.roomName = ''
+      }
     }
 
     /**

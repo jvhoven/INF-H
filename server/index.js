@@ -14,6 +14,7 @@ let rooms = [{
 
 let users = []
 let messages = [{
+  room: 'General',
   content: 'Lorem ipsum solor det amit',
   author: 'Jeffrey',
   timestamp: '20-02-1937 20:37'
@@ -57,11 +58,10 @@ io.on('connection', (socket) => {
     cb(rooms)
   })
 
-  /** Upon creating a message, we send a list of updated messages back.
-   * 
+  /** Initial getter for the messages upon connecting, defaults to general room.
    */
   socket.on('update:messages', (empty, cb) => {
-    cb(messages)
+    cb(messages.filter(message => message.room === 'General'))
   })
 
   /**
@@ -92,6 +92,9 @@ io.on('connection', (socket) => {
     }
   })
 
+  /**
+   * TODO: Free name on leaving
+   */
   socket.on('disconnecting', () => {
     const [, currentRoom] = Object.keys(socket.rooms)
     modifyRoom(socket, currentRoom, 'has left the room', 'leaving')
@@ -100,6 +103,9 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('update:rooms', rooms)
   })
 
+  /**
+   * Upon picking a name
+   */
   socket.on('authenticate:user', (requestedName, cb) => {
     // check if name is taken
     const checkName = (requestedName) => {
@@ -127,6 +133,20 @@ io.on('connection', (socket) => {
       users.push(requestedName)
       cb(response)
     }
+  })
+
+  /**
+   * @param {object} message - Message object.
+   * @param {function} cb - The callback to pass the updated array of message to.
+   */
+  socket.on('create:message', (message, cb) => {
+    messages.push(message)
+
+    // Push updates onto the other connected sockets.
+    const messagesForRoom = messages.filter(m => m.room === message.room)
+
+    socket.broadcast.to(message.room).emit('update:messages', messagesForRoom)
+    cb(messagesForRoom)
   })
 })
 

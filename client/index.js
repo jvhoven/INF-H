@@ -21,7 +21,6 @@ import MessagesService from './services/messages'
 // Pages
 import About from './pages/about'
 import Account from './pages/account'
-import CreateRoom from './pages/createRoom'
 
 // Components
 import Menu from './components/menu'
@@ -47,6 +46,5 @@ angular.module('keepo', [
 .component(Room.selector, Room)
 .component(Account.selector, Account)
 .component(About.selector, About)
-.component(CreateRoom.selector, CreateRoom)
 .config(Routes)
 

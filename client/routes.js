@@ -26,12 +26,6 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     component: 'account'
   }
 
-  const createRoomState = {
-    name: 'create',
-    url: '/create',
-    component: 'createRoom'
-  }
-
   const aboutState = {
     name: 'about',
     url: '/about',
@@ -40,7 +34,6 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
 
   $stateProvider.state(introState)
   $stateProvider.state(homeState)
-  $stateProvider.state(createRoomState)
   $stateProvider.state(accountState)
   $stateProvider.state(aboutState)
 }

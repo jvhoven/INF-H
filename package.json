@@ -9,7 +9,9 @@
     "build:dev": "webpack --watch --config webpack.config.js",
     "build:prod": "webpack --config webpack.config.js -p",
     "start:prod": "concurrently \"node server/index\" \"yarn run build:prod\"",
-    "test": "jest --notify"
+    "test": "jest --notify",
+    "test:watch": "jest --watch --notify",
+    "test:e2e": "scripts/e2e.sh"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
