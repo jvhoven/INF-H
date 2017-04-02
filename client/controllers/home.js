@@ -41,6 +41,10 @@ export default function ($scope, RoomsService, socket, _rooms) {
     $scope.rooms = data
   })
 
+  /**
+   * TODO: Show message upon switching room
+   * - User left or user joined
+   */
   socket.on('user:update', (msg) => {
     console.log(msg)
   })

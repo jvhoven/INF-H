@@ -8,8 +8,8 @@ export default {
       </li>
       <li>
         <a ui-sref="home" ui-sref-active="active">
-          <i class="fa fa-calendar"></i>
-          <span>All rooms</span>
+          <i class="fa fa-comments"></i>
+          <span>Chat</span>
         </a>
       </li>
       <li>

@@ -1,10 +1,17 @@
 export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
-  $locationProvider.html5Mode(true)
+  $locationProvider.html5Mode(false) // set to true for nice urls
   $urlRouterProvider.otherwise('/')
+
+  const introState = {
+    name: 'intro',
+    url: '/',
+    controller: 'IntroController as vm',
+    templateUrl: '/client/pages/intro.html'
+  }
 
   const homeState = {
     name: 'home',
-    url: '/',
+    url: '/dashboard',
     controller: 'HomeController as vm',
     templateUrl: '/client/pages/home.html',
     resolve: {
@@ -30,6 +37,7 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     component: 'about'
   }
 
+  $stateProvider.state(introState)
   $stateProvider.state(homeState)
   $stateProvider.state(createRoomState)
   $stateProvider.state(accountState)

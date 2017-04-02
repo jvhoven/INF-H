@@ -12,6 +12,8 @@ let rooms = [{
   userCount: 0
 }]
 
+let users = []
+
 app.use(express.static(cwd + '/'))
 
 app.get('/', function (req, res) {
@@ -36,7 +38,7 @@ io.on('connection', (socket) => {
 
   // Default channel is general
   socket.join('General', modifyRoom(socket, 'General', 'has joined the room'))
- 
+
   // Push updates onto the other connected sockets.
   socket.broadcast.emit('update:rooms', rooms)
 
@@ -84,6 +86,35 @@ io.on('connection', (socket) => {
 
     // Push updates onto the other connected sockets.
     socket.broadcast.emit('update:rooms', rooms)
+  })
+
+  socket.on('authenticate:user', (requestedName, cb) => {
+    // check if name is taken
+    const checkName = (requestedName) => {
+      let taken = false
+
+      users.forEach(name => {
+        if (name === requestedName) {
+          taken = true
+          return
+        }
+      })
+
+      return taken
+    }
+
+    let taken = checkName(requestedName)
+    let response = {
+      error: false,
+      message: ''
+    }
+
+    if (taken) {
+      cb(Object.assign(response, { error: true, message: 'It seems your username has already been taken.' }))
+    } else {
+      users.push(requestedName)
+      cb(response)
+    }
   })
 })
 
