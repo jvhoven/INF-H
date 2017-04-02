@@ -1,14 +1,14 @@
 import 'angular'
 import 'angular-mocks'
-import Room from '../../client/components/room'
+import Message from '../../client/components/message'
 
 const { angular } = window
 const { mock } = window.angular
 
 angular.module('keepo', [])
-.component(Room.selector, Room)
+.component(Message.selector, Message)
 
-describe('Room component', () => {
+describe('Message component', () => {
   let parentScope
   let element
 
@@ -16,7 +16,7 @@ describe('Room component', () => {
   beforeEach(mock.inject(($compile, $rootScope) => {
     parentScope = $rootScope.$new()
 
-    element = angular.element(`<room data="{ name: 'test', userCount: 0 }"></room>`)
+    element = angular.element(`<message data="{ author: 'Jeffrey', content: 'Test message', timestamp: '20-03-1938 20:37' }"></room>`)
     $compile(element)(parentScope)
 
     parentScope.$digest()
@@ -24,7 +24,6 @@ describe('Room component', () => {
 
   it('should render properly', () => {
     const elem = angular.element(element[0])
-    expect(elem.find('h4').text()).toEqual('# test')
-    expect(elem.find('p').text()).not.toEqual('')
+    expect(elem).not.toEqual({})
   })
 })

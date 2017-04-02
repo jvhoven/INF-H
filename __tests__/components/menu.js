@@ -22,7 +22,7 @@ describe('Menu component', () => {
     parentScope.$digest()
   }))
 
-  it('should render menu', () => {
+  it('should render properly', () => {
     const elem = angular.element(element[0])
     expect(elem.find('aside')).not.toEqual({})
   })
