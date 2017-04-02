@@ -19,7 +19,7 @@
     "babel-jest": "^19.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.0",
     "babel-preset-es2015": "^6.24.0",
-    "concurrently": "^3.3.0",
+    "concurrently": "^3.4.0",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-angular": "^1.6.1",
