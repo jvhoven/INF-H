@@ -262,3 +262,39 @@ rooms {
 .chat__box input[type="text"]:focus {
   outline: 0;
 }
+
+/**
+* MESSAGE
+*/
+.message {
+  padding: 10px;
+}
+
+.message__author {
+  float: left;
+  font-size: 12px;
+}
+
+.author__initials {
+  float: left;
+  display: block;
+  text-align: center;
+  width: 20px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #009688;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.author__name {
+  float: left;
+  font-size: 17px;
+  padding: 6px;
+}
+
+.message__content {
+  padding: 10px;
+  float: left;
+  font-size: 12px;
+}
