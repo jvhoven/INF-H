@@ -1,8 +1,8 @@
 <div class="make-room">
-  <a ng-hide="makingRoom" ng-click="toggleCreate()">+ New room</a>
+  <a id="create-room" ng-hide="makingRoom" ng-click="toggleCreate()">+ New room</a>
   <div ng-show="makingRoom">
     <input ng-model="roomName" type="text" />
-    <input type="submit" ng-click="createRoom()" />
+    <input id="submit" type="submit" ng-click="createRoom()" />
   </div>
 </div>
 <div class="room-list">

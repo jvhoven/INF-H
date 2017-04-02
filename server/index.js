@@ -13,12 +13,7 @@ let rooms = [{
 }]
 
 let users = []
-let messages = [{
-  room: 'General',
-  content: 'Lorem ipsum solor det amit',
-  author: 'Jeffrey',
-  timestamp: '20-02-1937 20:37'
-}]
+let messages = []
 
 app.use(express.static(cwd + '/'))
 

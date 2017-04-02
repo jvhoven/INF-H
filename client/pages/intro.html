@@ -3,7 +3,7 @@
     <img src="/public/img/keep-calm.png" alt="Keep calm, keep organised" />
     <div class="intro__username">
       <input ng-keyup="$event.keyCode == 13 && submit()" ng-model="name" type="text" placeholder="What is your name?" />
-      <input ng-click="submit()" type="submit" value="&rsaquo;" />
+      <input id="submit" ng-click="submit()" type="submit" value="&rsaquo;" />
     </div>
     <span class="intro__error">
       {{error}}
