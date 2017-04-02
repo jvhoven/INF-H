@@ -15,6 +15,11 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     controller: 'HomeController as vm',
     templateUrl: '/client/pages/home.html',
     resolve: {
+      hasName: ($rootScope, $state) => {
+        if (!$rootScope.name) {
+          $state.go('intro')
+        }
+      },
       _rooms: (RoomsService) => RoomsService.rooms.then(data => data),
       _messages: (MessagesService) => MessagesService.messages.then(data => data)
     }
