@@ -5,7 +5,8 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"node server/index\" \"yarn run build:dev\"",
+    "start": "node server/index",
+    "start:dev": "concurrently \"node server/index\" \"yarn run build:dev\"",
     "build:dev": "webpack --watch --config webpack.config.js",
     "build:prod": "webpack --config webpack.config.js -p",
     "start:prod": "concurrently \"node server/index\" \"yarn run build:prod\"",
