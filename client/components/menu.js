@@ -13,12 +13,6 @@ export default {
         </a>
       </li>
       <li>
-        <a ui-sref="create" ui-sref-active="active">
-          <i class="fa fa-calendar-plus-o"></i>
-          <span>Create room</span>
-        </a>
-      </li>
-      <li>
         <a ui-sref="account" ui-sref-active="active">
           <i class="fa fa-user-o"></i>
           <span>My account</span>
