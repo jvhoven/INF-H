@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 export default $rootScope => {
-  const socket = io('http://localhost:3000')
+  const socket = io('https://inf-h-angular.herokuapp.com/')
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {
