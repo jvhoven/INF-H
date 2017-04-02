@@ -1,7 +1,11 @@
 <div class="chat">
-  <div class="messages">
+  <div class="chat__room">
+    <h2># {{ $ctrl.room | lowercase }}</h2>
+  </div>
+  <div class="chat__messages">
     <message data="message" ng-repeat="message in $ctrl.messages"></message>
   </div>
   <div class="chat__box">
+    <input ng-keyup="$event.keyCode == 13 && sendMessage()" ng-model="message" type="text" placeholder="Type your message!" />
   </div>
 </div>

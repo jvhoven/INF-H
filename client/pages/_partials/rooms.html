@@ -6,5 +6,5 @@
   </div>
 </div>
 <div class="room-list">
-  <room ng-click="joinRoom(room.name)" data="room" ng-repeat="room in $ctrl.rooms"></room>
+  <room ng-class="{active: $ctrl.currentRoom == room.name}" ng-click="joinRoom(room.name)" data="room" ng-repeat="room in $ctrl.rooms"></room>
 </div>

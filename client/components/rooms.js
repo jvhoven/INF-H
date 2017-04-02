@@ -4,9 +4,13 @@ export default {
   bindings: {
     rooms: '='
   },
-  controller: function ($scope, RoomsService, socket) {
+  controller: function ($scope, $rootScope, RoomsService, socket) {
     $scope.makingRoom = false
     $scope.roomName = ''
+
+    $scope.isActive = (roomName) => {
+      this.currentRoom === roomName ? 'active' : ''
+    }
 
     /**
      * Assigns user to a room namespace.
@@ -15,6 +19,7 @@ export default {
       RoomsService.join(roomName)
         .then(rooms => $scope.$apply(() => {
           this.rooms = rooms
+          $rootScope.$broadcast('switchRoom', roomName)
         }))
     }
 

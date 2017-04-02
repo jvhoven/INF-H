@@ -1,4 +1,4 @@
-export default function ($scope, $state, UsersService) {
+export default function ($scope, $rootScope, $state, UsersService) {
   $scope.name = ''
   $scope.error = ''
 
@@ -8,7 +8,10 @@ export default function ($scope, $state, UsersService) {
       $scope.error = 'Name must be longer than 6 characters.'
     } else {
       UsersService.authenticate($scope.name).then(
-        () => $state.go('home', {}),
+        () => {
+          $rootScope.name = $scope.name
+          $state.go('home', {})
+        },
         (error) => $scope.$apply(() => {
           $scope.error = error
         })
